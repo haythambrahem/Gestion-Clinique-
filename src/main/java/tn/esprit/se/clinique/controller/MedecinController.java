@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.se.clinique.entity.Medecin;
 import tn.esprit.se.clinique.service.MedecinService;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,4 +35,10 @@ public class MedecinController {
         medecinService.affecterMedecinOrdinaireAClinique(medecinId, cliniqueId);
 
     }
+    @GetMapping(value = "/getCardiologueMedecinNames")
+    @ResponseBody
+    public List<String> getCardiologueMedecinNames() {
+        return medecinService.getCardiologueMedecinNames();
+    }
+
 }

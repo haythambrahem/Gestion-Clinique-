@@ -1,5 +1,7 @@
 package tn.esprit.se.clinique.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,11 +34,14 @@ public class Medecin implements Serializable {
     private Poste poste;
 
     @OneToOne(mappedBy = "medecin")
+    @JsonIgnore
     private Clinique clinique;
 
     @ManyToOne
+    @JsonIgnore
     private Clinique cliniques;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy = "medecins")
+    @JsonIgnore
     private Set<Patient> patients;
 }

@@ -1,5 +1,6 @@
 package tn.esprit.se.clinique.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
